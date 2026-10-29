@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LEONOVA Beauty Home — Воронеж</title>
+<meta name="description" content="Студия красоты LEONOVA на Свободы, 29. Маникюр, наращивание, педикюр, брови и мужские стрижки. Ежедневно 10:00–21:00 по записи. Рейтинг 5,0 в 2ГИС.">
+<!-- Демо-версия: пока владелец не одобрил сайт, поисковики его не показывают. После покупки убрать эту строку. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="LEONOVA Beauty Home — Воронеж">
+<meta property="og:description" content="Маникюр, педикюр, брови и барбер. Свободы, 29, центр Воронежа. Ежедневно 10:00–21:00.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "LEONOVA Beauty Home",
+  "telephone": "+7 900 925-97-66",
+  "priceRange": "200–6500 ₽",
+  "address": {"@type": "PostalAddress", "streetAddress": "улица Свободы, 29, 1 этаж, вход с торца", "addressLocality": "Воронеж", "postalCode": "394018", "addressCountry": "RU"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 51.658934, "longitude": 39.196232},
+  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "21:00"}],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": "21", "bestRating": "5"},
+  "sameAs": ["https://vk.com/creativemanicure36", "https://2gis.ru/voronezh/firm/70000001088808258"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="img/logo.png">
+<style>
+  /* Макет: журнал о красоте. Белые страницы, контрастная антиква, как надпись LEONOVA на логотипе,
+     и один акцент — малиновый из их работ. Фото ногтей — главный материал страницы. */
+  :root{
+    --bg:#fbf8f7;
+    --surface:#ffffff;
+    --ink:#1d1518;
+    --muted:#76696e;
+    --line:#ece3e5;
+    --berry:#b3305f;
+    --blush:#f6e4ea;
+    --star:#d89a2a;
+    --open:#2f8a4c;
+    --display:"Playfair Display",Georgia,"Times New Roman",serif;
+    --body:"Manrope",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --wrap:1200px;
+    --r:16px;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--blush)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  svg{display:block;flex:none}
+  :focus-visible{outline:2px solid var(--berry);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:italic;color:var(--berry)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;font:700 15px/1 var(--body);white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+  .btn svg{width:18px;height:18px}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-ink:hover{background:var(--berry)}
+  .btn-line{border-color:var(--ink);color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:#fff}
+  .btn-sm{height:42px;padding:0 18px;font-size:14px}
+
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+  .header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+  .header .wrap{display:flex;align-items:center;gap:28px;height:76px}
+  .logo img{width:60px;height:60px}
+  .nav{display:flex;gap:26px;font-weight:600;font-size:14px;color:var(--muted)}
+  .nav a:hover{color:var(--berry)}
+  .header-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+  .header-phone{font-weight:700;font-size:15px;white-space:nowrap}
+
+  /* первый экран: название, строка, кнопка; справа фото работ */
+  .hero{padding:clamp(32px,5vw,64px) 0 0}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+  .rating{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin-bottom:20px}
+  .rating .stars{color:var(--star)}
+  .stars{display:flex;gap:2px}
+  .stars svg{width:14px;height:14px}
+  .rating b{color:var(--ink)}
+  .hero h1{font-size:clamp(48px,7vw,96px);line-height:.98}
+  .hero h1 small{display:block;font:700 clamp(12px,1.2vw,14px)/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--berry);margin-bottom:18px}
+  .lead{font-size:clamp(17px,1.5vw,19px);color:var(--muted);max-width:30em;margin:24px 0 30px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-photos{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;height:clamp(400px,46vw,600px)}
+  .hero-photos img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);background:var(--line)}
+  .hero-photos img:last-child{margin-top:56px;height:calc(100% - 56px)}
+
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);margin-top:clamp(40px,5vw,64px)}
+  .fact{padding:22px 24px;min-width:0}
+  .fact + .fact{border-left:1px solid var(--line)}
+  .fact b{display:flex;align-items:center;gap:6px;font:500 30px/1.1 var(--display);font-variant-numeric:tabular-nums}
+  .fact b svg{width:18px;height:18px;color:var(--star)}
+  .fact span{font-size:14px;color:var(--muted)}
+  .status{display:inline-flex;align-items:center;gap:8px}
+  .status i{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .status.is-open i{background:var(--open)}
+
+  .section{padding:clamp(72px,9vw,116px) 0}
+  .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:clamp(30px,4vw,48px)}
+  .head > div{min-width:0}
+  .kicker{display:block;font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--berry);margin-bottom:14px}
+  .head h2{font-size:clamp(36px,5vw,62px);line-height:1.02}
+  .head p{color:var(--muted);max-width:30em}
+
+  /* направления */
+  .dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .dir{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .dir img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--line);max-width:100%}
+  .dir-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .dir h3{font-size:26px}
+  .dir p{font-size:14px;color:var(--muted);flex:1}
+  .dir b{font:500 22px/1 var(--display);color:var(--berry)}
+  .dir.barber{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .dir.barber p{color:#c9bec2}
+  .dir.barber b{color:#f2b6c9}
+  .dir.barber .ph{aspect-ratio:4/3;display:grid;place-items:center;background:#2a1f24}
+  .dir.barber .ph svg{width:72px;height:72px;color:#f2b6c9}
+
+  /* прайс раскрывающимися списками */
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .menu details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0 24px}
+  .menu summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font:500 26px/1.1 var(--display)}
+  .menu summary::-webkit-details-marker{display:none}
+  .menu summary span{font:600 14px/1 var(--body);color:var(--muted)}
+  .menu summary svg{width:20px;height:20px;color:var(--berry);transition:transform .2s}
+  .menu details[open] summary svg{transform:rotate(45deg)}
+  .it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:13px 0;border-top:1px solid var(--line)}
+  .it span{font-weight:600}
+  .it small{grid-column:1;font-size:13px;color:var(--muted)}
+  .it b{grid-row:1;grid-column:2;font:500 18px/1.4 var(--display);white-space:nowrap}
+  .menu details > :last-child{margin-bottom:18px}
+  .menu-note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+  /* работы */
+  .works{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:12px}
+  .work{padding:0;border:0;border-radius:var(--r);overflow:hidden;background:var(--line);cursor:zoom-in;min-width:0}
+  .work img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .work:hover img{transform:scale(1.05)}
+  .work.tall{grid-row:span 2}
+
+  /* мастера */
+  .masters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .master{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:center;min-width:0}
+  .master img{width:64px;height:64px;border-radius:50%;object-fit:cover;background:var(--line);box-shadow:0 0 0 3px var(--surface),0 0 0 4px var(--blush)}
+  .master h3{font-size:22px;line-height:1.1}
+  .master p{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}
+  .master .btn{grid-column:1/-1;width:100%}
+  .master.founder{background:var(--blush);border-color:var(--blush);grid-column:span 2}
+  .master.founder img{box-shadow:0 0 0 3px var(--blush),0 0 0 4px var(--berry)}
+
+  /* отзывы */
+  .reviews{columns:3 300px;column-gap:12px}
+  .review{break-inside:avoid;margin-bottom:12px;padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:grid;gap:12px}
+  .review .stars{color:var(--star)}
+  .review p{font-size:16px}
+  .review footer{font-size:14px;color:var(--muted)}
+  .review footer b{color:var(--ink)}
+
+  /* контакты */
+  .contacts{display:grid;grid-template-columns:.95fr 1.05fr;gap:12px}
+  .info{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:grid;gap:16px;align-content:start}
+  .r{display:grid;grid-template-columns:100px 1fr;gap:12px}
+  .r + .r{padding-top:16px;border-top:1px solid var(--line)}
+  .r dt{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .r dd small{display:block;color:var(--muted);font-size:14px}
+  .r a:hover{color:var(--berry)}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .map{position:relative;min-height:440px;border-radius:var(--r);overflow:hidden;background:var(--line);border:1px solid var(--line)}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .map .btn{position:absolute;left:16px;top:16px;z-index:2}
+
+  .final{padding:0 0 clamp(64px,8vw,100px)}
+  .final-box{background:var(--ink);color:#fff;border-radius:24px;padding:clamp(36px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+  .final-box h2{font-size:clamp(32px,4.4vw,56px);line-height:1.02}
+  .final-box h2 em{color:#f2b6c9}
+  .final-box p{color:#c9bec2;margin-top:10px}
+  .final-box .btn{background:#fff;color:var(--ink)}
+  .final-box .btn:hover{background:var(--blush)}
+  .footer{border-top:1px solid var(--line);padding-block:24px 30px;font-size:14px;color:var(--muted)}
+  .footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+  .footer a{border-bottom:1px solid var(--line)}
+
+  .lightbox{border:0;padding:0;background:transparent;margin:auto;max-width:min(92vw,1000px);max-height:90vh;overflow:visible}
+  .lightbox::backdrop{background:rgba(29,21,24,.9)}
+  .lightbox img{max-width:min(92vw,1000px);max-height:86vh;width:auto;height:auto;border-radius:12px}
+  .lightbox button{position:fixed;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+  .lightbox button svg{width:18px;height:18px}
+  .mobile-bar{display:none}
+
+  .hero-grid > div > *,.hero-photos img{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+  .hero-grid > div > :nth-child(2){animation-delay:.06s}
+  .hero-grid > div > :nth-child(3){animation-delay:.12s}
+  .hero-grid > div > :nth-child(4){animation-delay:.18s}
+  .hero-photos img:last-child{animation-delay:.15s}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}}
+
+  @media (max-width:1060px){.nav{display:none}.dirs{grid-template-columns:1fr 1fr}.masters{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){
+    .hero-grid,.contacts,.menu{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact:nth-child(3){border-left:0}
+    .fact:nth-child(n+3){border-top:1px solid var(--line)}
+    .works{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
+    .header-phone{display:none}
+  }
+  @media (max-width:640px){
+    body{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+    .header .btn{display:none}
+    .cta{flex-direction:column}
+    .cta .btn{width:100%}
+    .hero-photos{height:380px}
+    .fact{padding:16px}
+    .fact b{font-size:24px}
+    .dirs,.masters{grid-template-columns:1fr}
+    .master.founder{grid-column:auto}
+    .works{grid-auto-rows:170px;gap:8px}
+    .r{grid-template-columns:1fr;gap:2px}
+    .map{min-height:320px}
+    .final-box .btn{width:100%}
+    .mobile-bar{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--surface);border-top:1px solid var(--line)}
+    .mobile-bar .btn-line{width:52px;padding:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 19M8.6 16.4L20 5"/></g></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 4.3L2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.5-1.4zM9 14.2l9.1-5.8c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2z"/></symbol>
+    <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.5h3.1c.1 5 2.3 7.1 4.1 7.5V6.5h2.9v4.3c1.8-.2 3.6-2.2 4.3-4.3h2.9a8.6 8.6 0 0 1-3.9 5.6 9 9 0 0 1 4.6 5.4h-3.2a5.6 5.6 0 0 0-4.7-4v4z"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="LEONOVA Beauty Home — наверх"><img src="img/logo.png" alt="LEONOVA Beauty Home" width="200" height="200"></a>
+    <nav class="nav">
+      <a href="#dirs">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#works">Работы</a>
+      <a href="#masters">Мастера</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-phone" href="tel:+79009259766">+7 900 925-97-66</a>
+      <a class="btn btn-ink btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=" target="_blank" rel="noopener">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="rating"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>5,0</b> в 2ГИС · 21 оценка</span>
+          <h1><small>Студия красоты</small>LEONOVA <em>Beauty&nbsp;Home</em></h1>
+          <p class="lead">Маникюр, наращивание, педикюр, брови и мужские стрижки в центре Воронежа. Свободы, 29.</p>
+          <div class="cta">
+            <a class="btn btn-ink" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+            <a class="btn btn-line" href="tel:+79009259766"><svg><use href="#i-phone"/></svg>Позвонить</a>
+          </div>
+        </div>
+        <div class="hero-photos">
+          <img src="img/model.jpg" alt="Модель с маникюром студии LEONOVA" fetchpriority="high">
+          <img src="img/neon.jpg" alt="Маникюр с металлическим дизайном на фоне неоновой вывески">
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>5,0 <svg><use href="#i-star"/></svg></b><span>21 оценка в 2ГИС</span></div>
+        <div class="fact"><b>7 мастеров</b><span>маникюр, брови, барбер</span></div>
+        <div class="fact"><b>10–21</b><span>каждый день, по записи</span></div>
+        <div class="fact"><b class="status" id="status"><i></i><span>—</span></b><span id="status-sub">сейчас</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dirs">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Направления</span><h2>Всё в одной <em>студии</em></h2></div>
+        <p>Чай и кофе во время процедуры, а пока работает мастер, можно включить фильм или сериал.</p>
+      </div>
+      <div class="dirs">
+        <article class="dir"><img src="img/rabota-3.jpg" alt="Маникюр с дизайном" loading="lazy"><div class="dir-body"><h3>Маникюр</h3><p>Аппаратный и комбинированный, укрепление гелем, наращивание и дизайн.</p><b>от 1 000 ₽</b></div></article>
+        <article class="dir"><img src="img/pedikyur.jpg" alt="Педикюр с френчем" loading="lazy"><div class="dir-body"><h3>Педикюр</h3><p>Гигиенический, с покрытием и препаратный фруктовый педикюр.</p><b>от 1 500 ₽</b></div></article>
+        <article class="dir"><img src="img/brovi.jpg" alt="Оформленные брови" loading="lazy"><div class="dir-body"><h3>Брови</h3><p>Долговременная укладка, коррекция воском или пинцетом, окрашивание.</p><b>от 700 ₽</b></div></article>
+        <article class="dir barber"><div class="ph" aria-hidden="true"><svg><use href="#i-scissors"/></svg></div><div class="dir-body"><h3>Барбер</h3><p>Мужские стрижки, моделирование и окрашивание бороды у барбера Евгения.</p><b>от 800 ₽</b></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="prices" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Цены</span><h2>Прайс</h2></div>
+        <p>Цена зависит от мастера. Нажмите на раздел, чтобы открыть. Точную стоимость видно при записи в YClients.</p>
+      </div>
+      <div class="menu">
+        <details open>
+          <summary>Маникюр <span>от 1 000 ₽</span><svg><use href="#i-plus"/></svg></summary>
+          <div class="it"><span>Аппаратный маникюр / комби</span><b>1 000–1 200 ₽</b><small>40 мин – 1 ч</small></div>
+          <div class="it"><span>Укрепление / коррекция гелем</span><b>2 100–2 800 ₽</b><small>2 ч</small></div>
+          <div class="it"><span>Выравнивание базой + гель-лак</span><b>2 200 ₽</b><small>1 ч 15 мин</small></div>
+          <div class="it"><span>Наращивание ногтей</span><b>2 800–5 500 ₽</b><small>2,5–3,5 ч</small></div>
+          <div class="it"><span>Наращивание «Когти»</span><b>4 000 ₽</b><small>2 ч 30 мин</small></div>
+          <div class="it"><span>Верхние формы + френч</span><b>4 000–6 500 ₽</b><small>3 ч 20 мин</small></div>
+          <div class="it"><span>Коррекция наращивания</span><b>2 400–5 000 ₽</b><small>2–2 ч 40 мин</small></div>
+          <div class="it"><span>Снятие без покрытия</span><b>500 ₽</b><small>25–30 мин</small></div>
+          <div class="it"><span>Спа-массаж рук с умной свечой</span><b>300 ₽</b><small>10 мин</small></div>
+          <div class="it"><span>Ремонт / наращивание 1 ногтя</span><b>200–300 ₽</b><small>20 мин</small></div>
+        </details>
+        <details>
+          <summary>Педикюр <span>от 1 500 ₽</span><svg><use href="#i-plus"/></svg></summary>
+          <div class="it"><span>Гигиенический, пальчики</span><b>1 500 ₽</b><small>35 мин – 1 ч</small></div>
+          <div class="it"><span>Гигиенический, пальчики + стопы</span><b>1 800 ₽</b><small>50 мин – 1 ч</small></div>
+          <div class="it"><span>Пальчики + покрытие</span><b>2 300–2 500 ₽</b><small>1 ч · френч и плёнки +500 ₽</small></div>
+          <div class="it"><span>Полный педикюр с гель-лаком</span><b>2 500–2 700 ₽</b><small>1 ч 20 мин</small></div>
+          <div class="it"><span>Препаратный (фруктовый) + покрытие</span><b>3 500 ₽</b><small>1 ч 30 мин</small></div>
+          <div class="it"><span>Обработка стоп</span><b>800 ₽</b><small>20 мин</small></div>
+          <div class="it"><span>Спа-массаж ног с умной свечой</span><b>300 ₽</b><small>10 мин</small></div>
+        </details>
+        <details>
+          <summary>Брови <span>от 300 ₽</span><svg><use href="#i-plus"/></svg></summary>
+          <div class="it"><span>Долговременная укладка + коррекция + окрашивание</span><b>1 800 ₽</b><small>1 ч 15 мин</small></div>
+          <div class="it"><span>Долговременная укладка + коррекция</span><b>1 200 ₽</b><small>1 ч</small></div>
+          <div class="it"><span>Коррекция + окрашивание</span><b>1 000 ₽</b><small>1 ч</small></div>
+          <div class="it"><span>Коррекция воск / пинцет</span><b>700 ₽</b><small>30 мин</small></div>
+          <div class="it"><span>Мужская коррекция бровей</span><b>900–1 200 ₽</b><small>1 ч</small></div>
+          <div class="it"><span>Окрашивание ресниц</span><b>300 ₽</b><small>30 мин</small></div>
+        </details>
+        <details>
+          <summary>Барбер <span>от 800 ₽</span><svg><use href="#i-plus"/></svg></summary>
+          <div class="it"><span>Мужская стрижка</span><b>1 500 ₽</b><small>1 ч</small></div>
+          <div class="it"><span>Стрижка машинкой</span><b>1 200 ₽</b><small>45 мин</small></div>
+          <div class="it"><span>Стрижка под одну насадку</span><b>800 ₽</b><small>30 мин</small></div>
+          <div class="it"><span>Моделирование бороды</span><b>1 000 ₽</b><small>35 мин</small></div>
+          <div class="it"><span>Стрижка + моделирование бороды</span><b>2 300 ₽</b><small>1 ч 30 мин</small></div>
+          <div class="it"><span>Окрашивание бороды</span><b>500 ₽</b><small>15 мин</small></div>
+        </details>
+      </div>
+      <p class="menu-note">Оплата картой, наличными или по QR-коду.</p>
+    </div>
+  </section>
+
+  <section class="section" id="works" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Работы</span><h2>Ногти, которые <em>замечают</em></h2></div>
+        <p>Фото работ студии из 2ГИС. Нажмите, чтобы рассмотреть.</p>
+      </div>
+      <div class="works">
+        <button class="work tall" type="button"><img src="img/rabota-8.jpg" alt="Сиреневый градиент на длинных ногтях" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-1.jpg" alt="Нежный маникюр с бантиками" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-2.jpg" alt="Наращивание со стразами" loading="lazy"></button>
+        <button class="work tall" type="button"><img src="img/rabota-7.jpg" alt="Чёрно-розовый дизайн с бантами" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-4.jpg" alt="Нюдовый маникюр" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-6.jpg" alt="Карамельный френч" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/rabota-5.jpg" alt="Острые ногти с дизайном" loading="lazy"></button>
+        <button class="work" type="button"><img src="img/french.jpg" alt="Классический френч" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="masters" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Команда</span><h2>Мастера</h2></div>
+        <p>Выберите мастера и запишитесь сразу к нему.</p>
+      </div>
+      <div class="masters">
+        <article class="master founder">
+          <img src="img/m-darya.jpg" alt="Дарья Леонова" width="64" height="64" loading="lazy">
+          <div><h3>Дарья Леонова</h3><p>Основатель студии, ведущий мастер маникюра и педикюра · 59 отзывов</p></div>
+          <a class="btn btn-ink btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m4199553" target="_blank" rel="noopener">Записаться к Дарье</a>
+        </article>
+        <article class="master">
+          <img src="img/m-sofa.jpg" alt="Софа" width="64" height="64" loading="lazy">
+          <div><h3>Софа</h3><p>Топ-мастер маникюра и педикюра · 54 отзыва</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m4199730" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <img src="img/m-evgeniy.jpg" alt="Евгений" width="64" height="64" loading="lazy">
+          <div><h3>Евгений</h3><p>Барбер · 39 отзывов</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m4913341" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <img src="img/m-alina-d.jpg" alt="Алина Д." width="64" height="64" loading="lazy">
+          <div><h3>Алина Д.</h3><p>Топ-мастер маникюра и педикюра</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m5486856" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <img src="img/m-alina-s.png" alt="Алина С." width="64" height="64" loading="lazy">
+          <div><h3>Алина С.</h3><p>Мастер маникюра</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-master?o=" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <img src="img/m-olesya.png" alt="Олеся" width="64" height="64" loading="lazy">
+          <div><h3>Олеся</h3><p>Мастер маникюра и бровист</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m5795424" target="_blank" rel="noopener">Записаться</a>
+        </article>
+        <article class="master">
+          <img src="img/m-elizaveta.jpg" alt="Елизавета" width="64" height="64" loading="lazy">
+          <div><h3>Елизавета</h3><p>Мастер-бровист</p></div>
+          <a class="btn btn-line btn-sm" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=m4222746" target="_blank" rel="noopener">Записаться</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Отзывы</span><h2>Говорят <em>клиенты</em></h2></div>
+        <p>Отзывы из 2ГИС без правок.</p>
+      </div>
+      <div class="reviews">
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Самый лучший салон! Все процедуры выполняются качественно, сервис и клиентоориентированность на высшем уровне! Хожу к мастеру Софе уже 3 года и никогда не усомнилась в ее профессионализме!</p><footer><b>Злата Д.</b> · июнь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Евгений — мастер с большой буквы. Стригусь у него уже не в первый раз, и каждый визит — как маленькое событие … Атмосфера в салоне — отдельный восторг: уютно, спокойно, нет суеты. Евгений дал классные советы по уходу за волосами и бородой, которые реально работают.</p><footer><b>Семён Б.</b> · февраль 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Очень понравился педикюр от мастера Дарьи, была впервые, атмосфера салона и профессионализм мастера произвели замечательное впечатление. Буду рекомендовать салон и обязательно вернусь снова❤️</p><footer><b>Ирина С.</b> · сентябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Лучший мастер Воронежа , шикарный сервис , вкусный кофе , огромный выбор всего , всего , фильмы, сериалы , музыка , любой каприз ❤️❤️❤️❤️❤️</p><footer><b>Милана П.</b> · август 2024</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Осталась очень довольна ! Мастер Софа сделала маникюр и наращивание очень аккуратно и быстро. В студии приятная атмосфера, предлагают чай/кофе. Стильный интерьер.</p><footer><b>Анастасия Ч.</b> · октябрь 2025</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Замечательная уютная студия, с замечательным сервсисом и классными мастерами. Отдельное спасибо Дарье, моей кудеснице качественного маникюра ❤️уже третий год 🤍 Отличительным плюсом стал их переезд в центр 🕊️</p><footer><b>Валерия Д.</b> · январь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Хожу к мастеру Дарье уже давно, всегда самые лучшие ноготочки, сервис и отношение к клиентам 💅🏻🩷</p><footer><b>Вероника Е.</b> · июль 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Отличная студия! Уютная и приятная атмосфера, шикарный сервис!) Очень довольна маникюром, мастеру Анастасии большое спасибо🥰</p><footer><b>Марина К.</b> · март 2025</footer></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Контакты</span><h2>Как найти</h2></div>
+        <p>Центр, Ленинский район. Первый этаж, вход с торца здания. Работаем по предварительной записи.</p>
+      </div>
+      <div class="contacts">
+        <dl class="info">
+          <div class="r"><dt>Адрес</dt><dd>Улица Свободы, 29, 1 этаж<small>Вход с торца · Ленинский район, Воронеж, 394018</small></dd></div>
+          <div class="r"><dt>Часы</dt><dd>Ежедневно 10:00–21:00<small>по предварительной записи</small></dd></div>
+          <div class="r"><dt>Телефон</dt><dd><a href="tel:+79009259766">+7 900 925-97-66</a></dd></div>
+          <div class="links">
+            <a class="btn btn-line btn-sm" href="https://wa.me/79009259766" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+            <a class="btn btn-line btn-sm" href="https://t.me/+o6v733l9zMg0ZjVi" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+            <a class="btn btn-line btn-sm" href="https://vk.com/creativemanicure36" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg>ВКонтакте</a>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="LEONOVA на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=39.196232%2C51.658934&amp;z=16&amp;pt=39.196232%2C51.658934%2Cpm2pnl&amp;l=map"></iframe>
+          <a class="btn btn-ink btn-sm" href="https://2gis.ru/voronezh/firm/70000001088808258" target="_blank" rel="noopener">Маршрут в 2ГИС <svg><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <div class="final-box">
+        <div><h2>Запишитесь <em>к своему мастеру</em></h2><p>Онлайн-запись в YClients — свободное время видно сразу.</p></div>
+        <a class="btn" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> LEONOVA Beauty Home · Воронеж</span>
+    <span>Рейтинг, фото и отзывы: <a href="https://2gis.ru/voronezh/firm/70000001088808258" target="_blank" rel="noopener">2ГИС</a></span>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+  <img alt="">
+  <button type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</dialog>
+
+<div class="mobile-bar">
+  <a class="btn btn-ink" href="https://n1587768.yclients.com/company/1428534/personal/select-services?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+  <a class="btn btn-line" href="tel:+79009259766" aria-label="Позвонить"><svg><use href="#i-phone"/></svg></a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (() => {
+    const el = document.getElementById('status');
+    const h = Number(new Intl.DateTimeFormat('ru-RU', {hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Moscow'}).format(new Date()));
+    const open = h >= 10 && h < 21;
+    el.classList.toggle('is-open', open);
+    el.querySelector('span').textContent = open ? 'Открыто' : 'Закрыто';
+    document.getElementById('status-sub').textContent = open ? 'до 21:00, по записи' : 'откроемся в 10:00';
+  })();
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  document.querySelectorAll('.work').forEach(b => b.addEventListener('click', () => {
+    const img = b.querySelector('img');
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lb.showModal();
+  }));
+  lb.addEventListener('click', () => lb.close());
+</script>
+</body>
+</html>
